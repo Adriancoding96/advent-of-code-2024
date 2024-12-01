@@ -2,13 +2,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Main {
- 
-  public static void main(String[] args) {
-
+  
+  public static void main(String[] args){
+    
     ArrayList<Integer> list1 = new ArrayList<>();
     ArrayList<Integer> list2 = new ArrayList<>();
 
@@ -35,25 +34,20 @@ public class Main {
       System.err.println("Could not read columns from file");
     }
 
-    //Sort arrays containing columns
-    Collections.sort(list1);
-    Collections.sort(list2);
-
-    ArrayList<Integer> distances = new ArrayList<>();
-
-    int n = list1.size();
-
-    //Add distances between column values
-    for(int i = 0; i < n; i++) {
-      if(list1.get(i) == list2.get(i)) continue;
-      if(list1.get(i) > list2.get(i)) distances.add(list1.get(i) - list2.get(i));
-      if(list1.get(i) < list2.get(i)) distances.add(list2.get(i) - list1.get(i));
+    //Nested foreach loop to compare all values in list2
+    //with all values in list 1 
+    Integer similarityScore = 0;
+    for(Integer leftVal : list1) {
+      Integer sameValueOccurrance = 0;
+      for(Integer rightVal : list2) {
+        if(leftVal.equals(rightVal)) {
+          sameValueOccurrance++; 
+        } 
+      }
+      //Multiply occurrances with current value in list1
+      similarityScore += leftVal * sameValueOccurrance;
     }
+    System.out.println(similarityScore);
 
-    //Add distances together
-    Integer result = 0; 
-    for(Integer distance : distances) result += distance;
-    
-    System.out.println(result);
   }
 }
