@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Main {
@@ -32,7 +31,7 @@ public class Main {
         list2.add(column2);
       }
     }catch(IOException e) {
-      System.err.println("Could not read columns from file");
+      System.err.println("Could not read columns from file, error: " + e.getMessage());
     }
 
     //Sort arrays containing columns

@@ -41,7 +41,7 @@ public class Main {
      * Loop through all reports and check following conditions.
      * if current value and next value is the same, check if:
      *   if probleam dampener has been triggered, report is unsafe,
-  l   *   else remove current value and continue
+     *   else remove current value and continue
      * 
      * if current value is lesser then next value check following:
      *   if state of report sequence is decreasing, check if:
